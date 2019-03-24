@@ -6,17 +6,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/adf"
         android:id="@+id/anim"
-        android:background="@drawable/animation_background"
         tools:context=".MainActivity">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:text="QR Menu"
-              android:typeface="monospace"
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal"
+                  android:id="@+id/logo"
+    android:transitionName="applogot">
+    <TextView android:layout_width="230dp" android:layout_height="wrap_content"
+              android:text="GMenu"
+              android:typeface="serif"
               android:layout_marginTop="20dp"
               android:textColor="#FFF"
-              android:gravity="center_horizontal"
+              android:gravity="end"
               android:background="@drawable/header"
               android:textSize="55dp"/>
+        <ImageView android:layout_width="60dp"
+                   android:layout_height="80dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="20dp"
+                   android:src="@drawable/ic_restaurant_menu_black_24dp"
+        />
+
+    </LinearLayout>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
     android:layout_weight="0.2"/>
 
