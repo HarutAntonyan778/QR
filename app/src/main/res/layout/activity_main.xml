@@ -6,10 +6,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="8"
         android:id="@+id/anim"
         android:background="@drawable/animation_background"
         tools:context=".MainActivity">
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/button"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text="QR Menu"
+              android:typeface="monospace"
+              android:layout_marginTop="20dp"
+              android:textColor="#FFF"
+              android:gravity="center_horizontal"
+              android:background="@drawable/header"
+              android:textSize="55dp"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_weight="0.2"/>
+
+
+    <Button android:layout_width="match_parent" android:layout_height="94dp"
+            android:id="@+id/button"
+            android:text="Scan QR code"
+            android:textSize="40sp"
+            android:textColor="#FFF"
+            android:typeface="serif"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/scanbutton"/>
 </LinearLayout>
