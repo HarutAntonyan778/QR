@@ -7,18 +7,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/adf"
+        android:transitionName="category_color_transition"
+
 >
 
     <android.support.v4.view.ViewPager android:layout_width="match_parent"
                                        android:layout_height="650dp"
                                        android:id="@+id/sliderViewPager"
-    >
+                                       android:layout_alignParentBottom="true" android:layout_marginBottom="181dp">
     </android.support.v4.view.ViewPager>
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:layout_marginTop="650dp" android:layout_alignParentBottom="true"
+                  android:layout_marginTop="550dp" android:layout_alignParentBottom="true"
                   android:transitionName="applogot"
-                  >
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_marginBottom="60dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
                   android:text="GMenu"
                   android:typeface="serif"
                   android:layout_marginBottom="20dp"

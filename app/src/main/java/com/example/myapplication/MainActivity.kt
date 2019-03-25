@@ -30,7 +30,11 @@ class MainActivity : AppCompatActivity() {
 //        animDrawable.setExitFadeDuration(3000)
 //        animDrawable.start()
         button.setOnClickListener {
-            IntentIntegrator(this).initiateScan()
+            val inten:Intent = Intent(this,Categories::class.java)
+//                val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, Pair(logo,"applogot"))
+//                startActivity(inten,options.toBundle())
+            startActivity(inten)
+//            IntentIntegrator(this).initiateScan()
         }
     }
 
