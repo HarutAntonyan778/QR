@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+              android:background="#3490dc"
+              android:id="@+id/animation_background"
+                                              android:orientation="vertical"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:id="@+id/logo"
+                  android:transitionName="applogot">
+        <TextView android:layout_width="230dp" android:layout_height="wrap_content"
+                  android:text="GMenu"
+                  android:typeface="serif"
+                  android:id="@+id/menu_title"
+                  android:layout_marginTop="20dp"
+                  android:textColor="#FFF"
+                  android:gravity="end"
+                  android:background="@drawable/header"
+                  android:textSize="55dp"/>
+        <ImageView android:layout_width="60dp"
+                   android:layout_height="80dp"
+                   android:id="@+id/menu_icon"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="20dp"
+                   android:src="@drawable/ic_restaurant_menu_black_24dp"
+        />
+
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="60dp"
+            app:lottie_fileName="lotie_qr.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_marginTop="20dp"
+                  android:id="@+id/button"
+                  android:clickable="true"
+                  android:onClick="scanNow"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
+                  android:layout_gravity="center_horizontal"
+    android:background="@drawable/scanbutton">
+        <ImageView android:layout_width="35dp"
+                   android:layout_height="35dp"
+                   android:layout_marginLeft="30dp"
+                   android:layout_marginRight="10dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:layout_gravity="center_vertical"
+        android:src="@drawable/qr_image"/>
+        <TextView android:layout_width="230dp" android:layout_height="wrap_content"
+                  android:text="Scan now"
+                  android:typeface="serif"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginBottom="5dp"
+                  android:layout_marginRight="10dp"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:textColor="#FFF"
+                  android:background="@drawable/header"
+                  android:textSize="35dp"/>
+    </LinearLayout>
+
+</LinearLayout>

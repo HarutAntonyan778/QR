@@ -13,7 +13,6 @@ class ItemsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items)
-        view.setBackgroundColor(Color.parseColor(intent.getStringExtra("color")))
         menu_image.setImageDrawable(getDrawable(intent.getIntExtra("image",0)))
         items_category_name.text = intent.getStringExtra("category")
         val items = ArrayList<Item>()

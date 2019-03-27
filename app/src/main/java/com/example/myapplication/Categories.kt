@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.app.ActivityOptions
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import android.view.MotionEvent
 import android.widget.TextView
+import com.readystatesoftware.systembartint.SystemBarTintManager
 
 
 class Categories : AppCompatActivity() {
@@ -39,16 +41,14 @@ class Categories : AppCompatActivity() {
             Category(
                 R.drawable.alcohol,
                 "DRINK",
-                "The drink is the best thing that every kind of man can drink",
-                "#FF5722"
+                "The drink is the best thing that every kind of man can drink"
             )
         )
         views.add(
             Category(
                 R.drawable.food_c,
                 "FOOD",
-                "The drink is the best thing that every kind of man can drink",
-                "#00BCD4"
+                "The drink is the best thing that every kind of man can drink"
             )
         )
         slider = CategorySlider(this, views)
@@ -74,7 +74,7 @@ class Categories : AppCompatActivity() {
             }
 
             override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
-                materialScrollingLayout.setBackgroundColor(Color.parseColor(views[p0].color))
+
             }
 
             override fun onPageSelected(p0: Int) {
@@ -112,7 +112,6 @@ class Categories : AppCompatActivity() {
     public fun updateRange(v: View) {
         val inten: Intent = Intent(this@Categories,ItemsActivity::class.java)
         inten.putExtra("category",views[position].name)
-        inten.putExtra("color",views[position].color)
         inten.putExtra("image",views[position].image)
 //                val pairs: Array<Pair<View,String>> = arrayOf()
         val transition: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this@Categories, Pair<View,String>(findViewById(R.id.menu_image),"category_image_transition"),Pair<View,String>(findViewById(R.id.materialScrollingLayout),"category_title_transition") )

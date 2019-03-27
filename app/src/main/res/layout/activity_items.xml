@@ -13,7 +13,7 @@
         <View
                 android:layout_width="match_parent"
                 android:layout_height="120dp" android:id="@+id/view"
-                android:background="#00BCD4"
+                android:background="#3490dc"
                 android:transitionName="category_color_transition"
         />
         <TextView

@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools" android:id="@+id/materialScrollingLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/adf"
+        android:background="#3490dc"
         android:transitionName="category_color_transition"
 
 >

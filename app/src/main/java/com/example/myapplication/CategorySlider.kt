@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.ActionBar
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
@@ -12,6 +13,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.graphics.drawable.ColorDrawable
+
+
 
 class CategorySlider(var context: Context, val views: ArrayList<Category>): PagerAdapter() {
     lateinit var layoutInflater: LayoutInflater
@@ -32,9 +36,8 @@ class CategorySlider(var context: Context, val views: ArrayList<Category>): Page
         var title: TextView = view.findViewById(R.id.textView)
         var description: TextView = view.findViewById(R.id.textView2)
 
+
         imageSlider.setImageResource(views[position].image)
-        title.setTextColor(Color.parseColor(views[position].color))
-        description.setTextColor(Color.parseColor(views[position].color))
         title.setText(views[position].name)
         description.setText(views[position].description)
 
