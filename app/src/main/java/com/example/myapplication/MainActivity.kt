@@ -10,11 +10,13 @@ import android.util.Pair
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.FirebaseApp
+import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.new_version.*
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
@@ -23,8 +25,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.new_version)
         menu_title.animation = AnimationUtils.loadAnimation(this,R.anim.title_animation)
         menu_icon.animation = AnimationUtils.loadAnimation(this,R.anim.icon_animation)
+        database = FirebaseDatabase.getInstance().reference
 
-        database = FirebaseDatabase.getInstance().getReference("Cafe").push()
+
 
 
     }
@@ -33,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         val inten:Intent = Intent(this,Categories::class.java)
 //                val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, Pair(logo,"applogot"))
 //                startActivity(inten,options.toBundle())
-        startActivity(inten)
-//            IntentIntegrator(this).initiateScan()
+//        startActivity(inten)
+            IntentIntegrator(this).initiateScan()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -46,6 +49,8 @@ class MainActivity : AppCompatActivity() {
                 val inten:Intent = Intent(this,Categories::class.java)
 //                val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, Pair(logo,"applogot"))
 //                startActivity(inten,options.toBundle())
+                val myRef = database.child("caffee").child(result.getContents())
+                FirebaseHelper.firebaseCategories = myRef
                 startActivity(inten)
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             }

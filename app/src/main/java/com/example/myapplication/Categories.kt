@@ -2,26 +2,19 @@ package com.example.myapplication
 
 import android.app.ActivityOptions
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
-import android.support.v7.widget.CardView
 import android.util.Pair
 import android.view.View
 import kotlinx.android.synthetic.main.activity_categories.*
 import android.view.animation.DecelerateInterpolator
 import android.transition.ChangeBounds
 import android.transition.Transition
-import android.view.DragEvent
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.Toast
-import android.view.MotionEvent
-import android.widget.TextView
-import com.readystatesoftware.systembartint.SystemBarTintManager
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 
 
 class Categories : AppCompatActivity() {
@@ -37,20 +30,21 @@ class Categories : AppCompatActivity() {
         window.enterTransition = enterTransition()
         window.exitTransition = returnTransition()
 
-        views.add(
-            Category(
-                R.drawable.alcohol,
-                "DRINK",
-                "The drink is the best thing that every kind of man can drink"
-            )
-        )
-        views.add(
-            Category(
-                R.drawable.food_c,
-                "FOOD",
-                "The drink is the best thing that every kind of man can drink"
-            )
-        )
+        FirebaseHelper.firebaseCategories.child("categories").addValueEventListener(object: ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                for (snap in p0!!.children) {
+
+                    views.add(snap.getValue(Category::class.java)!!)
+                    slider.notifyDataSetChanged()
+
+                }
+            }
+        })
+
         slider = CategorySlider(this, views)
         sliderViewPager.adapter = slider
 
@@ -111,7 +105,7 @@ class Categories : AppCompatActivity() {
 
     public fun updateRange(v: View) {
         val inten: Intent = Intent(this@Categories,ItemsActivity::class.java)
-        inten.putExtra("category",views[position].name)
+        inten.putExtra("category",views[position].title)
         inten.putExtra("image",views[position].image)
 //                val pairs: Array<Pair<View,String>> = arrayOf()
         val transition: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this@Categories, Pair<View,String>(findViewById(R.id.menu_image),"category_image_transition"),Pair<View,String>(findViewById(R.id.materialScrollingLayout),"category_title_transition") )

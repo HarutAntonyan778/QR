@@ -6,13 +6,13 @@
         xmlns:tools="http://schemas.android.com/tools" android:id="@+id/materialScrollingLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#3490dc"
+        android:background="@drawable/background"
         android:transitionName="category_color_transition"
 
 >
 
     <android.support.v4.view.ViewPager android:layout_width="match_parent"
-                                       android:layout_height="650dp"
+                                       android:layout_height="wrap_content"
                                        android:id="@+id/sliderViewPager"
                                        android:layout_alignParentBottom="true" android:layout_marginBottom="181dp">
     </android.support.v4.view.ViewPager>

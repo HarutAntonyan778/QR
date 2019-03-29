@@ -1,20 +1,12 @@
 package com.example.myapplication
 
-import android.app.ActionBar
-import android.app.ActivityOptions
 import android.content.Context
-import android.content.Intent
-import android.graphics.Color
-import android.support.constraint.ConstraintLayout
 import android.support.v4.view.PagerAdapter
-import android.support.v4.view.ViewPager
-import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import android.graphics.drawable.ColorDrawable
-
+import com.squareup.picasso.Picasso
 
 
 class CategorySlider(var context: Context, val views: ArrayList<Category>): PagerAdapter() {
@@ -37,8 +29,9 @@ class CategorySlider(var context: Context, val views: ArrayList<Category>): Page
         var description: TextView = view.findViewById(R.id.textView2)
 
 
-        imageSlider.setImageResource(views[position].image)
-        title.setText(views[position].name)
+//        imageSlider.setImageResource(views[position].image)
+        Picasso.get().load(views[position].image).into(imageSlider)
+        title.setText(views[position].title)
         description.setText(views[position].description)
 
 
